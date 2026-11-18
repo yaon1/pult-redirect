@@ -1,0 +1,10 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пульт</title>
+<style>body{margin:0;font:16px system-ui;background:#111;color:#ddd;display:flex;height:100vh;align-items:center;justify-content:center}</style></head>
+<body><p id="m">Открываю…</p>
+<script>
+// Переадресация на текущий адрес Пульта (target.txt). Хвост адреса (#tgWebAppData… от Telegram) сохраняется — по нему Пульт проверяет вход.
+fetch('target.txt?' + Date.now(), { cache: 'no-store' }).then(r => r.text()).then(t => {
+  const u = t.trim(); if (!/^https:\/\//.test(u)) throw 0;
+  location.replace(u.replace(/\/$/, '') + '/' + location.search + location.hash);
+}).catch(() => { document.getElementById('m').textContent = 'Пульт сейчас недоступен, попробуй через минуту.'; });
+</script></body></html>
