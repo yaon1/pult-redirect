@@ -1,1 +1,1 @@
-https://knights-regularly-heel-shine.trycloudflare.com
+https://api.trycloudflare.com
